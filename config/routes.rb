@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'user#show'
+  root 'users#show'
 
   devise_for :users
   resources :users do
