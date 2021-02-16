@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>McNamara</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,22 +10,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('updated-logo.png') %>
-  </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+</head>
 
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <%= link_to "All my expenses", user_expenses_path(user_id: current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "All my external expenses", user_expenses_path(user_id: current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "All Groups", user_groups_path(user_id: current_user.id) %>
-        </li>
-      </ul>
-    </nav>
+<body>
+    <% if user_signed_in? %>
+      <div class="ui secondary pointing menu">
+          <%= link_to "All my expenses", user_expenses_path(user_id: current_user.id), class: "active item" %>
+          <%= link_to "All my external expenses", user_expenses_path(user_id: current_user.id), class: "item" %>
+          <%= link_to "All Groups", user_groups_path(user_id: current_user.id), class: "item" %>
+          <div class="right menu">
+              <%= link_to "Logout", destroy_user_session_path, class: "item" %>
+          </div>
+      </div>
+    <% end %>
     <%= yield %>
-  </body>
+</body>
+
 </html>

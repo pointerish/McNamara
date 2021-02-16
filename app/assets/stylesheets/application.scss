@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway');
+
+* {
+  font-family: 'Raleway', serif;
+}
+
+.center-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: #3778c2;
+}
