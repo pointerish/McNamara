@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :groups
-    resources :expenses, only: :show
+    resources :expenses, only: [:show, :index]
   end
 end

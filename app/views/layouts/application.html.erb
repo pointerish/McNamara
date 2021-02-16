@@ -12,6 +12,19 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "All my expenses", user_expenses_path(user_id: current_user.id) %>
+        </li>
+        <li>
+          <%= link_to "All my external expenses", user_expenses_path(user_id: current_user.id) %>
+        </li>
+        <li>
+          <%= link_to "All Groups", user_groups_path(user_id: current_user.id) %>
+        </li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
