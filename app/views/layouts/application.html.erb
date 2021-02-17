@@ -21,8 +21,8 @@
           <%= link_to "All my external expenses", user_expenses_path(user_id: current_user.id), class: "item" %>
           <%= link_to "All Groups", user_groups_path(user_id: current_user.id), class: "item" %>
           <div class="right menu">
-              <%= link_to "Add Expense", new_expense_path, class: "item" %>
-              <%= link_to "Add Group", new_group_path, class: "item" %>
+              <%= link_to "Add Expense", new_user_expense_path(user_id: current_user.id), class: "item" %>
+              <%= link_to "Add Group", new_user_group_url(user_id: current_user.id), class: "item" %>
               <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>
           </div>
       </div>

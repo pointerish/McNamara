@@ -6,6 +6,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    # @groups = current_user.groups ? current_user.groups : [0]
   end
 
   def create
