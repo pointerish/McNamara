@@ -1,18 +1,18 @@
 <div class="ui items">
-  <% @expenses.each do |expense| %>
-    <div class="item">
-      <div class="image">
-        <img src="app/assets/image/expense.pgn">
-      </div>
-      <div class="content">
-        <a class="header"><%= expense.name %></a>
-        <div class="meta">
-          <span><%= expense.amount %></span>
+    <% @expenses.each do |expense| %>
+    <div class="ui raised link card">
+        <div class="content">
+            <div class="header"><%= expense.name %></div>
+            <div class="meta">
+                <span class="category"><%= expense.group %></span>
+                <span class="category"><%= expense.amount %></span>
+            </div>
         </div>
-        <div class="meta">
-          <span><%= expense.group %></span>
+        <div class="extra content">
+            <div class="right floated author">
+                <img class="ui avatar image" src="app/assets/image/expense.pgn">
+            </div>
         </div>
-      </div>
     </div>
-  <% end %>
+    <% end %>
 </div>
