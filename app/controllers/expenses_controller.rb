@@ -5,6 +5,6 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    @expense = Expense.find(params[:id])
+    @expense = current_user.expenses.where('id = ?', params[:id])
   end
 end

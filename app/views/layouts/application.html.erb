@@ -16,10 +16,10 @@
 
 <body>
     <% if user_signed_in? %>
-      <div class="ui secondary pointing menu">
-          <%= link_to "All my expenses", user_expenses_path(user_id: current_user.id), class: "active item" %>
-          <%= link_to "All my external expenses", user_expenses_path(user_id: current_user.id), class: "item" %>
-          <%= link_to "All Groups", user_groups_path(user_id: current_user.id), class: "item" %>
+      <div class="ui secondary pointing menu ">
+          <%= link_to "All my expenses", user_expenses_url, class: "item" %>
+          <%= link_to "All my external expenses", user_expenses_url, class: "item" %>
+          <%= link_to "All Groups", user_groups_url, class: "item" %>
           <div class="right menu">
               <div class="item"><%= current_user.name %></div>
               <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>
