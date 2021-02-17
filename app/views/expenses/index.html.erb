@@ -1,0 +1,18 @@
+<div class="ui items">
+  <% @expenses.each do |expense| %>
+    <div class="item">
+      <div class="image">
+        <img src="app/assets/image/expense.pgn">
+      </div>
+      <div class="content">
+        <a class="header"><%= expense.name %></a>
+        <div class="meta">
+          <span><%= expense.amount %></span>
+        </div>
+        <div class="meta">
+          <span><%= expense.group %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

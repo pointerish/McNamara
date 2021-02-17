@@ -8,6 +8,10 @@ class Expense < ApplicationRecord
     "#{id}-#{slug}"
   end
 
+  def group
+    Group.find(self.group_id)
+  end
+
   private
   def set_slug
     self.slug = name.to_s.parameterize

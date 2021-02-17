@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
 
   def index
-    redirect_to root_path
+    @expenses = current_user.expenses.where('group_id = NULL')
   end
 
   def show
