@@ -1,13 +1,25 @@
 <div class="center-me">
   <h2>Create New Group</h2>
-  <%= current_user.name %>
+</div>
+<br />
+<div class="center-me">
+  <% if @group.errors.any? %>
+  <% @group.errors.full_messages.each do |message| %>
+    <div class="ui negative message">
+      <div class="header">
+        <%= message %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
   <%= form_with model: @group do |f| %>
   <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :name %><br /><br />
       <div class="ui input">
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
   </div>
+  <br />
   <div class="actions">
       <%= f.submit "Create", class: "ui primary button" %>
   </div>

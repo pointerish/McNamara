@@ -17,8 +17,14 @@
 <body>
     <% if user_signed_in? %>
     <div class="ui secondary pointing menu ">
-        
+        <a href="#" class="item">
+          <%= image_tag "updated-logo.png" %>
+        </a>
+        <%= link_to "All my expenses", expenses_path, class: "item" %>
+        <%= link_to "All my external expenses", expenses_path, class: "item" %>
+        <%= link_to "All Groups", groups_path, class: "item" %>
         <div class="right menu">
+            <div class="item">Hi, <%= current_user.username %>!</div>
             <%= link_to "Add Expense", new_expense_path, class: "item" %>
             <%= link_to "Add Group", new_group_path, class: "item" %>
             <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>

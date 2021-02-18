@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @groups = current_user.groups
@@ -10,12 +9,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = current_user.groups.build name: params[:name]
+    @group = current_user.groups.build(group_args)
     if @group.save!
       flash[:notice] = 'Group added!'
       redirect_to root_path
     else
-      redirect_to root_path, alert: @group.errors.full_messages.join('. ').to_s
+      redirect_to new_group_path
     end
   end
 
@@ -31,5 +30,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = current_user.groups.where('id = ?', params[:id])
+  end
+
+  private
+
+  def group_args
+    params.require(:group).permit(:name, :amount)
   end
 end
