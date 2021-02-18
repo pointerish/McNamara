@@ -11,8 +11,7 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.build(group_args)
     if @group.save!
-      flash[:notice] = 'Group added!'
-      redirect_to root_path
+      redirect_to groups_path
     else
       redirect_to new_group_path
     end
@@ -35,6 +34,6 @@ class GroupsController < ApplicationController
   private
 
   def group_args
-    params.require(:group).permit(:name, :amount)
+    params.require(:group).permit(:name, :description)
   end
 end
