@@ -1,0 +1,16 @@
+<div class="ui raised link card">
+  <div class="content">
+    <div class="header"><%= g.name %></div>
+    <div class="meta">
+      <span class="category"><%= g.created_at.strftime('%m/%d/%Y') %></span>
+    </div>
+    <div class="description">
+      <p><%= g.description %></p>
+    </div>
+  </div>
+  <div class="extra content">
+    <div class="right floated author">
+      <%= image_tag "avatar.webp", class: "ui avatar image" %><%= current_user.username %>
+    </div>
+  </div>
+</div>

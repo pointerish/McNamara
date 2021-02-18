@@ -1,3 +1,5 @@
-<%= @groups.each do |g| %>
-<p><%= g.name %></p>
-<% end %>
+<div class="ui three stackable cards">
+  <% @groups.each do |group| %>
+    <%= render 'group_card', g: group %>
+  <% end %>
+</div>

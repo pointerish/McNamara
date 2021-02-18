@@ -20,6 +20,13 @@
       </div>
   </div>
   <br />
+  <div class="field">
+      <%= f.label :description %><br /><br />
+      <div class="ui input">
+          <%= f.text_field :description, autofocus: true, autocomplete: "name" %>
+      </div>
+  </div>
+  <br />
   <div class="actions">
       <%= f.submit "Create", class: "ui primary button" %>
   </div>
