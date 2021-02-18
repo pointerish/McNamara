@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   match "/500", to: "errors#internal_server_error", via: :all
   
   devise_for :users
-  resources :users do
-    resources :groups
-    resources :expenses
-  end
+  resources :users
+  resources :groups
+  resources :expenses
 end

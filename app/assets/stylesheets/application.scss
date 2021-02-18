@@ -31,7 +31,7 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding-top: 20px;
@@ -41,6 +41,18 @@ footer {
   margin-bottom: 0;
 }
 
-footer p {
+.footer-content {
   color: #777777;
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  [class*="mobile hidden"],
+  [class*="tablet only"]:not(.mobile),
+  [class*="computer only"]:not(.mobile),
+  [class*="large monitor only"]:not(.mobile),
+  [class*="widescreen monitor only"]:not(.mobile),
+  [class*="or lower hidden"] {
+    display: none !important;
+  }
 }

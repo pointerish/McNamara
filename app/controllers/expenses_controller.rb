@@ -6,12 +6,12 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
-    # @groups = current_user.groups ? current_user.groups : [0]
+    @groups = current_user.groups ? current_user.groups : [0]
   end
 
   def create
     @expense = current_user.expenses.build(expense_args)
-    if @expense.save
+    if @expense.save!
       flash[:notice] = 'Expense added!'
       redirect_to root_path
     else

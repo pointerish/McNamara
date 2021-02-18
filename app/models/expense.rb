@@ -9,7 +9,11 @@ class Expense < ApplicationRecord
   end
 
   def group
-    Group.find(self.group_id)
+    if self.group_id
+      Group.find(self.group_id)
+    else
+      0
+    end
   end
 
   private
