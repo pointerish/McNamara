@@ -46,6 +46,10 @@ footer {
   text-align: center;
 }
 
+.pad-top-form {
+  padding-top: 6rem;
+}
+
 @media only screen and (max-width: 767px) {
   [class*="mobile hidden"],
   [class*="tablet only"]:not(.mobile),
