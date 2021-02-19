@@ -10,7 +10,8 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @expense = Expense.new(expense_args, user_id: current_user.id)
+    @expense = current_user.expenses.build(expense_args)
+    @expense.user_id = current_user.id
     if @expense.save!
       redirect_to expenses_path
     else

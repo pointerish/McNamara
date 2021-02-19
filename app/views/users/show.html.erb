@@ -1,2 +1,30 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="pad-top-form pad-x">
+  <h2>Hi, <%= current_user.username %>!</h2>
+  <h4>See the expense categories you've created:</h4>
+
+  <div class="ui cards">
+    <% current_user.groups.each do |category| %>
+      <div class="card">
+        <div class="content">
+            <div class="header"><%= category.name %></div>
+            <div class="description">
+                <%= category.description %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h4>Foreign Exchange Rates (EUR as base):</h4>
+  <div class="ui cards">
+    <% exchange_data['rates'].each do |key, value| %>
+      <div class="card">
+        <div class="content">
+            <div class="header"><%= key %></div>
+            <div class="description">
+                <%= value %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

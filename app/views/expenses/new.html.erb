@@ -1,6 +1,7 @@
 <div class="center-me pad-top-form">
   <h2>Create New Expense</h2>
 </div>
+<br />
 <div class="center-me">
   <%= form_with model: @expense do |f| %>
   <div class="field">
@@ -18,7 +19,12 @@
   </div>
   <br />
   <div class="field">
-    <%= select_tag 'group_id', options_for_select(@groups.collect{ |u| [u.name, u.id] }), class: 'ui search dropdown' %>
+    <%= f.label "Category" %><br /><br />
+    <select class="ui dropdown" name="expense[group_id]">
+      <% @groups.each do |g| %>
+        <option value="<%= g.id %>"><%= g.name %></option>
+      <% end %>
+    </select>
   </div>
   <br />
   <div class="actions">

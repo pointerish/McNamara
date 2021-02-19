@@ -50,9 +50,17 @@ footer {
   padding-top: 6rem;
 }
 
+.pad-top-item {
+  padding-top: 2rem;
+}
+
 .pad-x {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.item {
+  display: flex;
 }
 
 @media only screen and (max-width: 767px) {

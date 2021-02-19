@@ -1,5 +1,8 @@
+<div class="pad-top-form pad-x">
+<h2><%= @group_name %></h2>
 <div class="ui list">
     <% @group_expenses.each do |expense| %>
-    <%= render 'expenses/expense-card', locals: { expense: expense } %>
+    <%= render 'expenses/expense-card', expense: expense %>
     <% end %>
 <div class="ui list">
+</div>
