@@ -50,6 +50,11 @@ footer {
   padding-top: 6rem;
 }
 
+.pad-x {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 @media only screen and (max-width: 767px) {
   [class*="mobile hidden"],
   [class*="tablet only"]:not(.mobile),

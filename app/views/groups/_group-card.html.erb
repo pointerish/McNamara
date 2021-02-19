@@ -1,6 +1,10 @@
-<div class="ui raised link card">
+<div class="ui raised link card pad-x">
   <div class="content">
-    <div class="header"><%= g.name %></div>
+    <div class="header">
+      <a href="/groups/<%= g.id %>">
+        <%= g.name %>
+      </a>
+    </div>
     <div class="meta">
       <span class="category"><%= g.created_at.strftime('%m/%d/%Y') %></span>
     </div>

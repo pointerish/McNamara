@@ -4,20 +4,23 @@
 <div class="center-me">
   <%= form_with model: @expense do |f| %>
   <div class="field">
-      <%= f.label :name %><br />
+      <%= f.label :name %><br /><br />
       <div class="ui input">
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
   </div>
+  <br />
   <div class="field">
-      <%= f.label :amount %><br />
+      <%= f.label :amount %><br /><br />
       <div class="ui input">
           <%= f.number_field :amount, autofocus: true, autocomplete: "amount"%>
       </div>
   </div>
+  <br />
   <div class="field">
-    <%= select_tag 'expense_group_id', options_for_select(@groups.collect{ |u| [u.name, u.id] }) %>
+    <%= select_tag 'group_id', options_for_select(@groups.collect{ |u| [u.name, u.id] }), class: 'ui search dropdown' %>
   </div>
+  <br />
   <div class="actions">
       <%= f.submit "Create", class: "ui primary button" %>
   </div>

@@ -1,1 +1,5 @@
-<%= @group.name %>
+<div class="ui list">
+    <% @group_expenses.each do |expense| %>
+    <%= render 'expenses/expense-card', locals: { expense: expense } %>
+    <% end %>
+<div class="ui list">

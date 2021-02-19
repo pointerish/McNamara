@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
 
   def index
-    @expenses = current_user.expenses.where('group_id = NULL')
+    @expenses = current_user.expenses
   end
 
   def new
@@ -10,12 +10,11 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @expense = current_user.expenses.build(expense_args)
+    @expense = Expense.new(expense_args, user_id: current_user.id)
     if @expense.save!
-      flash[:notice] = 'Expense added!'
-      redirect_to root_path
+      redirect_to expenses_path
     else
-      redirect_to root_path, alert: @expense.errors.full_messages.join('. ').to_s
+      redirect_to expenses_path, alert: @expense.errors.full_messages.join('. ').to_s
     end
   end
 

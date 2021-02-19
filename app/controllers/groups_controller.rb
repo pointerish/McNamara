@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = current_user.groups.where('id = ?', params[:id])
+    @group_expenses = current_user.expenses.select { |e| e.group_id == params[:id] }
   end
 
   private
