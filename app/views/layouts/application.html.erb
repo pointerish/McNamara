@@ -18,17 +18,17 @@
     <% if user_signed_in? %>
     <div class="ui fluid container">
         <div class="ui top fixed menu color-me-blue">
-            <div class="item">
+            <a href="/" class="item">
                 <%= image_tag "updated-logo.png" %>
-            </div>
+            </a>
             <%= link_to "Expenses", expenses_path, class: "item" %>
-            <%= link_to "External Expenses", expenses_path, class: "item" %>
+            <%= link_to "External Expenses", expenses_uncategorized_path, class: "item" %>
             <%= link_to "Categories", groups_path, class: "item" %>
         </div>
         <div class="ui bottom fixed menu color-me-blue">
             <div class="item">Hi, <%= current_user.username %>!</div>
             <%= link_to "Add Expense", new_expense_path, class: "item" %>
-            <%= link_to "Add Group", new_group_path, class: "item" %>
+            <%= link_to "Add Category", new_group_path, class: "item" %>
             <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>
         </div>
     </div>

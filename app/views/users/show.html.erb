@@ -4,14 +4,16 @@
 
   <div class="ui cards">
     <% current_user.groups.each do |category| %>
-      <div class="card">
-        <div class="content">
-            <div class="header"><%= category.name %></div>
-            <div class="description">
-                <%= category.description %>
-            </div>
+      <% if category.name != 'Uncategorized' %>
+        <div class="card">
+          <div class="content">
+              <%= link_to category.name, group_path(category.id), class: "header" %>
+              <div class="description">
+                  <%= category.description %>
+              </div>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <h4>Foreign Exchange Rates (EUR as base):</h4>

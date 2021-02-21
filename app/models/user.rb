@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  after_create :setup_uncategorized
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 
@@ -11,4 +12,10 @@ class User < ApplicationRecord
   
   has_many :groups, dependent: :destroy
   has_many :expenses, dependent: :destroy
+
+  protected
+
+  def setup_uncategorized
+    Group.create(name: "Uncategorized", description: "Uncategorized", user_id: self.id)
+  end
 end

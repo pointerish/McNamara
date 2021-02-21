@@ -131,6 +131,7 @@ GEM
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.2.2)
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -263,6 +264,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   pry
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

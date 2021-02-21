@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
 
   def index
-    @expenses = current_user.expenses
+    @expenses = current_user.expenses.order("created_at DESC")
   end
 
   def new
@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @expense = Expense.find_by user_id: params[:user_id], friendee_id: current_user.id
+    @expense = Expense.find params[:id]
 
     if @expense.destroy
       redirect_to root_path, notice: 'Expense deleted from records!'
@@ -31,6 +31,14 @@ class ExpensesController < ApplicationController
 
   def show
     @expense = current_user.expenses.where('id = ?', params[:id])
+  end
+
+  def uncategorized_expenses
+    if current_user.groups.where('name = "Uncategorized"').length.zero?
+      @uncategorized_expenses = nil
+    else
+      @uncategorized_expenses = current_user.groups.where('name = "Uncategorized"')
+    end
   end
 
   private

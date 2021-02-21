@@ -2,6 +2,7 @@
     <%= image_tag "expense.png", class: "ui avatar image" %>
     <div class="content">
       <a class="header"><%= expense.name %></a>
-      <div class="description">$<%= expense.amount %></div>
+      <small class="description">$<%= expense.amount %> | Created on: <%= expense.created_at.strftime("%m/%d/%Y") %></small>
+      <%= link_to "Delete", expense_path(expense.id), method: :delete %>
     </div>
   </div>
