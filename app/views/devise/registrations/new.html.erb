@@ -1,9 +1,8 @@
-<div class="ui container">
+<div class="ui container pad-top-form">
+  <h2 class="center-me">Sign up</h2>
   <div class="center-me">
     <%= image_tag "updated-logo.png" %>
   </div>
-  <h2 class="center-me">Sign up</h2>
-
   <div class="center-me">
     <%= form_with model: @user do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>

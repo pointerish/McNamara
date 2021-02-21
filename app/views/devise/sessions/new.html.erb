@@ -1,4 +1,4 @@
-<div class="ui container">
+<div class="ui container pad-top-form">
   <h2 class="center-me">Log In</h2>
   <div class="center-me">
     <%= image_tag "updated-logo.png" %>
@@ -13,27 +13,25 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
       </div>
-
+      <br />
       <div class="field">
         <%= f.label :password %><br />
         <div class="ui input">
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
       </div>
-
+      <br />
       <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
-
+      <br />
       <div class="actions">
         <%= f.submit "Log in", class: "ui primary button" %>
       </div>
+      <%= render "devise/shared/links" %>
     <% end %>
-  </div>
-  <div class="center-me">
-    <%= render "devise/shared/links" %>
   </div>
 </div>
