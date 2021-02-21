@@ -1,8 +1,12 @@
 <div class="pad-top-form pad-x">
-<h2>Categorized Expenses</h2>
-<div class="ui list">
-    <% @expenses.each do |expense| %>
-    <%= render 'expenses/expense-card', expense: expense %>
-    <% end %>
-</div>
+<% if @expenses.length.zero? %>
+    <h2>You have no registered expenses!</h2>
+<% else %>
+    <h2>Categorized Expenses</h2>
+    <div class="ui list">
+        <% @expenses.each do |expense| %>
+        <%= render 'expenses/expense-card', expense: expense %>
+        <% end %>
+    </div>
+<% end %>
 </div>
