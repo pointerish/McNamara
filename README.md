@@ -5,7 +5,7 @@
 
 > McNamara is a expense tracker web application built with Rails, PostgreSQL and Docker
 
-<p style="center"><img src="./docs/ror-social-scaffold.png"></p>
+<p style="center"><img src="app/assets/images/updated-logo.png"></p>
 
 ## Built With
 
