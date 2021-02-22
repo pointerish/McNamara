@@ -3,7 +3,7 @@
 
 # McNamara
 
-> McNamara is a expense tracker web application built with Rails, PostgreSQL and Docker
+> McNamara is an expense tracker web application built with Rails, PostgreSQL and Docker
 
 <p style="center"><img src="app/assets/images/updated-logo.png"></p>
 
