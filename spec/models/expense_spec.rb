@@ -1,8 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
-  let(:long_content) { (0...21).map { rand(65..90).chr }.join }
+  let(:user) { User.new(username:'anerlo', email:'anerlo@gmail.com', password:'123123') }
+  let(:group) { Group.new(name:"Expense General", description: "An expense category", user_id: 1) }
   it 'is not valid without attributes' do
     expect(Expense.new).to_not be_valid
+  end
+  it 'is not valid without user_id' do
+    expect(Expense.new(name: 'YouTube', amount: 2, group_id:1)).to_not be_valid
+  end
+  it 'is not valid without name' do
+    expect(Expense.new(amount: 2, group_id:group.id, user_id: user.id)).to_not be_valid
+  end
+  it 'is not valid without amount' do
+    expect(Expense.new(name: 'YouTube', group_id:group.id, user_id: user.id)).to_not be_valid
+  end
+  it 'is not valid without group_id' do
+    expect(Expense.new(amount: 2, name: 'YouTube', user_id: user.id)).to_not be_valid
+  end
+  it 'is not valid without group_id' do
+    expect(Expense.new(amount: 2, name: 'YouTube', user_id: user.id)).to_not be_valid
   end
 end
