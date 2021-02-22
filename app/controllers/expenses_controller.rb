@@ -23,7 +23,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find params[:id]
 
     if @expense.destroy
-      redirect_to root_path, notice: 'Expense deleted from records!'
+      redirect_to root_path
     else
       redirect_to root_path, alert: @expense.errors.full_messages.join('. ').to_s
     end
