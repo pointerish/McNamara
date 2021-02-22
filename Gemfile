@@ -42,7 +42,6 @@ group :test do
   gem 'pry'
   gem 'rspec'
   gem 'selenium-webdriver'
-  gem 'rails-erd'
 end
 
 group :development do
