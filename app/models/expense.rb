@@ -1,5 +1,4 @@
 class Expense < ApplicationRecord
-  attr_reader :icon
 
   belongs_to :user
   belongs_to :group
