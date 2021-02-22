@@ -10,8 +10,8 @@
 ## Built With
 
 - Ruby v2.7.0
-- Ruby on Rails v5.2.4
-- PostgreSQL 9.5
+- Ruby on Rails v6.1.3
+- PostgreSQL:latest
 
 ## Live Demo
 
