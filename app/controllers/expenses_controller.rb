@@ -23,7 +23,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find params[:id]
 
     if @expense.destroy
-      redirect_to root_path
+      redirect_back fallback_location: root_path
     else
       redirect_to root_path, alert: @expense.errors.full_messages.join('. ').to_s
     end
@@ -34,11 +34,7 @@ class ExpensesController < ApplicationController
   end
 
   def uncategorized_expenses
-    if current_user.groups.where('name = "Uncategorized"').length.zero?
-      @uncategorized_expenses = nil
-    else
-      @uncategorized_expenses = current_user.groups.where('name = "Uncategorized"')
-    end
+    @uncategorized_expenses =current_user.expenses.where('group_id = 1')
   end
 
   private

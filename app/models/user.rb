@@ -16,10 +16,10 @@ class User < ApplicationRecord
   protected
 
   def setup_groups
-    Group.create(name: "Uncategorized", description: "Uncategorized", user_id: self.id)
-    Group.create(name: "Food", description: "Food Category", user_id: self.id)
-    Group.create(name: "Travel", description: "Travel Category", user_id: self.id)
-    Group.create(name: "Finance", description: "Finance Category", user_id: self.id)
-    Group.create(name: "General", description: "General Category", user_id: self.id)
+    Group.create(name: "Uncategorized", description: "Uncategorized Expenses", user_id: self.id)
+    Group.create(name: "Food", description: "Food Expenses", user_id: self.id)
+    Group.create(name: "Travel", description: "Travel Expenses", user_id: self.id)
+    Group.create(name: "Finance", description: "Finance Expenses", user_id: self.id)
+    Group.create(name: "General", description: "General Expenses", user_id: self.id)
   end
 end

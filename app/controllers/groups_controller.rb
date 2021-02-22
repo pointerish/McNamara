@@ -18,10 +18,10 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find_by user_id: params[:user_id], friendee_id: current_user.id
+    @group = Group.find(params[:id])
 
     if @group.destroy
-      redirect_to root_path, notice: 'Group deleted from records!'
+      redirect_to root_path
     else
       redirect_to root_path, alert: @group.errors.full_messages.join('. ').to_s
     end
