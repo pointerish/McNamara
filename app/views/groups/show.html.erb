@@ -1,5 +1,5 @@
 <div class="pad-top-form pad-x">   
-<h2><%= image_tag @group_name.icon, class: "ui avatar image" %><%= @group_name.name %></h2>
+<h2><%= image_tag @group_name.icon ? @group_name.icon : 'expense.png', class: "ui avatar image" %><%= @group_name.name %></h2>
 <div class="ui list">
     <% @group_expenses.each do |expense| %>
     <%= render 'expenses/expense-card', expense: expense %>
