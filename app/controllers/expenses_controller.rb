@@ -34,7 +34,7 @@ class ExpensesController < ApplicationController
   end
 
   def uncategorized_expenses
-    @uncategorized_expenses =current_user.expenses.where('group_id = 1')
+    @uncategorized_expenses = current_user.expenses.where('group_id = 1')
   end
 
   private

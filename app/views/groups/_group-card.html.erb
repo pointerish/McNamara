@@ -1,6 +1,7 @@
 <div class="ui raised link card pad-x">
   <div class="content">
-    <div class="header">
+    <div class="header group-align">
+      <%= image_tag g.icon ? g.icon : 'expense.png', class: "ui avatar image" %>
       <a href="/groups/<%= g.id %>">
         <%= g.name %>
       </a>
