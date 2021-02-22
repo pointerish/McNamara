@@ -5,6 +5,6 @@ class Expense < ApplicationRecord
   belongs_to :group
 
   def icon
-    Group.find(self.group_id).icon
+    Group.find(group_id).icon
   end
 end
