@@ -1,6 +1,6 @@
 class Expense < ApplicationRecord
   belongs_to :user
-  belongs_to :group
+  belongs_to :groups
 
   validates :amount, presence: true
   validates :user_id, presence: true

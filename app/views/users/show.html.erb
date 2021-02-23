@@ -19,7 +19,7 @@
   <%= pie_chart @user_expenses.group(:group_name).count, donut: true, download: true, title: "Expenses" %>
   <h4>Foreign Exchange Rates (EUR as base):</h4>
   <div class="ui cards">
-    <% exchange_data['rates'].each do |key, value| %>
+    <% exchange_data['rates'].first(30).each do |key, value| %>
       <div class="card">
         <div class="content">
             <div class="header"><%= key %></div>

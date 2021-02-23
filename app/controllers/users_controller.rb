@@ -20,6 +20,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_args)
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def user_args
