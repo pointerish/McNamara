@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   def index
     @expenses = current_user.expenses
+    @expenses_total = @expenses.map { |e| e.amount }.inject(:+)
   end
 
   def new

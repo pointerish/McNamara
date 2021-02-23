@@ -45,6 +45,8 @@ body {
 
 .item {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 input[type="checkbox"] {
