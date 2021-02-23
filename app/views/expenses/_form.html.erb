@@ -24,7 +24,7 @@
   </div>
   <br />
   <div class="actions">
-      <%= f.submit "Create", class: "ui primary button" %>
+      <%= f.submit request.path.include?("new") ? "Create" : "Update", class: "ui primary button" %>
   </div>
   <% end %>
 </div>

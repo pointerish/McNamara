@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.build(expense_args)
     @expense.user_id = current_user.id
+    @expense.group_name = Group.find(params[:expense][:group_id]).name
     if @expense.save!
       redirect_to expenses_path
     else
@@ -40,7 +41,8 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find params[:id]
-    if @expense.update!(expense_args)
+    @expense.group_name = Group.find(params[:expense][:group_id]).name
+    if @expense.update(expense_args)
       redirect_to expenses_path
     else
       redirect_to expenses_path, alert: @expense.errors.full_messages.join('. ').to_s

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_expenses = current_user.expenses
+    @user_expenses = current_user.expenses.includes(:group)
   end
 
   def new
