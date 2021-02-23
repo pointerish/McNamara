@@ -14,6 +14,9 @@
     </div>
   </div>
   <div class="extra content">
+    <div class="left floated">
+      <%= custom_group?(g) %>
+    </div>
     <div class="right floated author">
       <%= image_tag "avatar.webp", class: "ui avatar image" %><%= current_user.username %>
     </div>

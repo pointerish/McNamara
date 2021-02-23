@@ -13,6 +13,13 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :expenses, dependent: :destroy
 
+  def default_groups
+    ['Uncategorized','Housing','Transportation',
+     'Food','Utilities','Clothing','Medical',
+     'Insurance','Personal','Debt','Savings',
+     'Education','Entertainment','General']
+  end
+
   protected
 
   def setup_groups

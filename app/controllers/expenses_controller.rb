@@ -34,7 +34,7 @@ class ExpensesController < ApplicationController
   end
 
   def edit
-    @expense = @expense = Expense.find params[:id]
+    @expense = Expense.find params[:id]
     @groups = current_user.groups
   end
 
