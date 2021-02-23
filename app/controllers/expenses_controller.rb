@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   def index
-    @expenses = current_user.expenses
+    @expenses = current_user.expenses.includes(:group).order(created_at: :desc)
     @expenses_total = @expenses.map { |e| e.amount }.inject(:+)
   end
 
@@ -33,8 +33,23 @@ class ExpensesController < ApplicationController
     @expense = current_user.expenses.where('id = ?', params[:id])
   end
 
+  def edit
+    @expense = @expense = Expense.find params[:id]
+    @groups = current_user.groups
+  end
+
+  def update
+    @expense = Expense.find params[:id]
+    if @expense.update!(expense_args)
+      redirect_to expenses_path
+    else
+      redirect_to expenses_path, alert: @expense.errors.full_messages.join('. ').to_s
+    end
+  end
+
   def uncategorized_expenses
-    @uncategorized_expenses = current_user.expenses.where('group_id = 1')
+    @uncategorized_expenses = current_user.expenses.where('group_id = 1').order(:created_at)
+    @u_expenses_total = @uncategorized_expenses.map { |e| e.amount }.inject(:+)
   end
 
   private

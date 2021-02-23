@@ -1,0 +1,30 @@
+<div class="center-me">
+  <%= form_with model: expense do |f| %>
+  <div class="field">
+      <%= f.label :name %><br /><br />
+      <div class="ui input">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+  </div>
+  <br />
+  <div class="field">
+      <%= f.label :amount %><br /><br />
+      <div class="ui input">
+          <%= f.number_field :amount, autofocus: true, autocomplete: "amount"%>
+      </div>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label "Category" %><br /><br />
+    <select class="ui dropdown" name="expense[group_id]">
+      <% groups.each do |g| %>
+        <option value="<%= g.id %>"><%= g.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <br />
+  <div class="actions">
+      <%= f.submit "Create", class: "ui primary button" %>
+  </div>
+  <% end %>
+</div>
