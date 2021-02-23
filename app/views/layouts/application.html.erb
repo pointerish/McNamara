@@ -10,31 +10,31 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('updated-logo.png') %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 </head>
 
 <body>
-  <div class="container">
     <% if user_signed_in? %>
-      <div class="ui fluid container">
+    <div class="ui fluid container">
         <div class="ui top fixed menu color-me-blue">
-          <a href="/" class="item">
-              <%= image_tag "updated-logo.png" %>
-          </a>
-          <%= link_to "Expenses", expenses_path, class: "item" %>
-          <%= link_to "External Expenses", expenses_uncategorized_path, class: "item" %>
-          <%= link_to "Categories", groups_path, class: "item" %>
+            <a href="/" class="item">
+                <%= image_tag "updated-logo.png" %>
+            </a>
+            <%= link_to "Expenses", expenses_path, class: "item" %>
+            <%= link_to "External Expenses", expenses_uncategorized_path, class: "item" %>
+            <%= link_to "Categories", groups_path, class: "item" %>
         </div>
         <div class="ui bottom fixed menu color-me-blue">
-          <div class="item">Hi, <%= current_user.username %>!</div>
-          <%= link_to "Add Expense", new_expense_path, class: "item" %>
-          <%= link_to "Add Category", new_group_path, class: "item" %>
-          <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>
+            <div class="item">Hi, <%= current_user.username %>!</div>
+            <%= link_to "Add Expense", new_expense_path, class: "item" %>
+            <%= link_to "Add Category", new_group_path, class: "item" %>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "item" %>
         </div>
-      </div>
+    </div>
     <% end %>
     <%= yield %>
-  </div>
 </body>
+
 </html>
