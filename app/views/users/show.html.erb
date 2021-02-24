@@ -4,22 +4,21 @@
 
   <div class="ui cards">
     <% current_user.groups.each do |category| %>
-      <% if category.name != 'Uncategorized' %>
-        <div class="card">
-          <div class="content">
-              <%= link_to category.name, group_path(category.id), class: "header" %>
-              <div class="description">
-                  <%= category.description %>
-              </div>
-          </div>
+      <div class="card">
+        <div class="content">
+            <%= link_to category.name, group_path(category.id), class: "header" %>
+            <div class="description">
+                <%= category.description %>
+            </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
-  <%= pie_chart @user_expenses.group(:group_name).count, donut: true, download: true, title: "Expenses" %>
+  <br/>
+  <%= draw_chart %>
   <h4>Foreign Exchange Rates (EUR as base):</h4>
   <div class="ui cards">
-    <% exchange_data['rates'].first(30).each do |key, value| %>
+    <% exchange_data.each do |key, value| %>
       <div class="card">
         <div class="content">
             <div class="header"><%= key %></div>

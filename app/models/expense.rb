@@ -4,7 +4,6 @@ class Expense < ApplicationRecord
 
   validates :amount, presence: true
   validates :user_id, presence: true
-  validates :group_id, presence: true
   validates :name, presence: true, length: { in: 2..20 }
 
   def icon

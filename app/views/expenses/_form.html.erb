@@ -17,6 +17,7 @@
   <div class="field">
     <%= f.label "Category" %><br /><br />
     <select class="ui dropdown" name="expense[group_id]">
+      <option disabled selected value>Select Category</option>
       <% groups.each do |g| %>
         <option value="<%= g.id %>"><%= g.name %></option>
       <% end %>
