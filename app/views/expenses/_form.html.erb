@@ -1,31 +1,14 @@
-<div class="center-me">
   <%= form_with model: expense do |f| %>
-  <div class="field">
-      <%= f.label :name %><br /><br />
-      <div class="ui input">
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </div>
-  </div>
-  <br />
-  <div class="field">
-      <%= f.label :amount %><br /><br />
-      <div class="ui input">
-          <%= f.number_field :amount, autofocus: true, autocomplete: "amount"%>
-      </div>
-  </div>
-  <br />
-  <div class="field">
-    <%= f.label "Category" %><br /><br />
-    <select class="ui dropdown" name="expense[group_id]">
+    <%= f.label :name %><br /><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount, autofocus: true, autocomplete: "amount"%>
+    <%= f.label "Category" %>
+    <select name="expense[group_id]">
       <option disabled selected value>Select Category</option>
       <% groups.each do |g| %>
         <option value="<%= g.id %>"><%= g.name %></option>
       <% end %>
     </select>
-  </div>
-  <br />
-  <div class="actions">
-      <%= f.submit request.path.include?("new") ? "Create" : "Update", class: "ui primary button" %>
-  </div>
+    <%= f.submit request.path.include?("new") ? "Create" : "Update" %>
   <% end %>
-</div>

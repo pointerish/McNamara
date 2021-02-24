@@ -1,8 +1,4 @@
-<div class="pad-top-form pad-x">
 <h2>All Expenses</h2>
-<div class="ui list">
-    <% @expenses.each do |expense| %>
-    <%= render 'expenses/expense-card', expense: expense %>
-    <% end %>
-</div>
-</div>
+<% @expenses.each do |expense| %>
+  <%= render 'expenses/expense-card', expense: expense %>
+<% end %>

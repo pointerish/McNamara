@@ -1,32 +1,10 @@
-<div class="pad-top-form pad-x">
-  <h2>Hi, <%= current_user.username %>!</h2>
-  <h4>See your expense categories:</h4>
-
-  <div class="ui cards">
+<h2>Hi, <%= current_user.username %>!</h2>
+<h4>See your expense categories:</h4>
     <% current_user.groups.each do |category| %>
-      <div class="card">
-        <div class="content">
-            <%= link_to category.name, group_path(category.id), class: "header" %>
-            <div class="description">
-                <%= category.description %>
-            </div>
-        </div>
-      </div>
+      <%= render 'groups/group-card', g: category %>
     <% end %>
-  </div>
-  <br/>
-  <%= draw_chart %>
-  <h4>Foreign Exchange Rates (EUR as base):</h4>
-  <div class="ui cards">
-    <% exchange_data.each do |key, value| %>
-      <div class="card">
-        <div class="content">
-            <div class="header"><%= key %></div>
-            <div class="description">
-                <%= value %>
-            </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= draw_chart %>
+<h4>Foreign Exchange Rates (EUR as base):</h4>
+<% exchange_data.each do |key, value| %>
+<%= key %><%= value %>
+<% end %>

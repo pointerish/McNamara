@@ -1,12 +1,8 @@
-<div class="ui fluid container pad-top-form pad-x">
     <% if @groups.nil? %>
     <h2>You have no categories!</h2>
     <% else %>
     <h2>Your Categories</h2>
-    <div class="ui three stackable cards">
         <% @groups.each do |group| %>
         <%= render 'group-card', g: group %>
         <% end %>
-    </div>
     <% end %>
-</div>

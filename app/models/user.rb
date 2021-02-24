@@ -29,7 +29,6 @@ class User < ApplicationRecord
     Group.create(name: 'Utilities', description: 'Utilities Expenses', user_id: id, icon: 'utilities.png')
     Group.create(name: 'Clothing', description: 'Clothing Expenses', user_id: id, icon: 'clothes.png')
     Group.create(name: 'Medical', description: 'Medical Expenses', user_id: id, icon: 'dinosaur.png')
-    Group.create(name: 'Personal', description: 'Personal Expenses', user_id: id, icon: 'dinosaur.png')
     Group.create(name: 'Debt', description: 'Debt Expenses', user_id: id, icon: 'bond.png')
     Group.create(name: 'Savings', description: 'Savings Expenses', user_id: id, icon: 'bond.png')
     Group.create(name: 'Education', description: 'Education Expenses', user_id: id, icon: 'presentation.png')

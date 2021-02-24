@@ -1,24 +1,7 @@
-<div class="ui raised link card pad-x">
-  <div class="content">
-    <div class="header group-align">
-      <%= image_tag g.icon ? g.icon : 'expense.png', class: "ui avatar image" %>
-      <a href="/groups/<%= g.id %>">
-        <%= g.name %>
-      </a>
-    </div>
-    <div class="meta">
-      <span class="category"><%= g.created_at.strftime('%m/%d/%Y') %></span>
-    </div>
-    <div class="description">
-      <p><%= g.description %></p>
-    </div>
-  </div>
-  <div class="extra content">
-    <div class="left floated">
-      <%= custom_group?(g) %>
-    </div>
-    <div class="right floated author">
-      <%= image_tag "avatar.webp", class: "ui avatar image" %><%= current_user.username %>
-    </div>
-  </div>
-</div>
+<%= image_tag g.icon ? g.icon : 'expense.png' %>
+<a href="/groups/<%= g.id %>">
+<%= g.name %>
+</a>
+<%= g.created_at.strftime('%m/%d/%Y') %>
+<p><%= g.description %></p>
+<%= custom_group?(g) %>

@@ -1,21 +1,7 @@
-<div class="center-me">
-    <%= form_with model: group do |f| %>
-    <div class="field">
-        <%= f.label :name %><br /><br />
-        <div class="ui input">
-            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
-    </div>
-    <br />
-    <div class="field">
-        <%= f.label :description %><br /><br />
-        <div class="ui input">
-            <%= f.text_area :description, autofocus: true, autocomplete: "name" %>
-        </div>
-    </div>
-    <br />
-    <div class="actions">
-        <%= f.submit request.path.include?("new") ? "Create" : "Update", class: "ui primary button" %>
-    </div>
-    <% end %>
-</div>
+<%= form_with model: group do |f| %>
+<%= f.label :name %><br /><br />
+<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<%= f.label :description %>
+<%= f.text_area :description, autofocus: true, autocomplete: "name" %>
+<%= f.submit request.path.include?("new") ? "Create" : "Update" %>
+<% end %>
