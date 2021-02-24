@@ -1,14 +1,23 @@
 <div class="md:container md:mx-auto mt-12">
-<h2 class="font-black my-6 sm:hidden md:show">Hi, <%= current_user.username %>!</h2>
-<h4>See your expense categories:</h4>
+  <h2 class="font-black my-6 text-xl">Hi, <%= current_user.username %>!</h2>
+  <h4>See your expense categories:</h4>
   <div class="md:grid md:grid-cols-3 md:gap-4">
     <% current_user.groups.each do |category| %>
       <%= render 'groups/group-card', g: category %>
     <% end %>
   </div>
-<%= draw_chart %>
-<h4>Foreign Exchange Rates (EUR as base):</h4>
-<% exchange_data.each do |key, value| %>
-<%= key %><%= value %>
-<% end %>
+  <div class="p-2 rounded shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+    <%= draw_chart %>
+  </div>
+  <h4 class="font-black text-xl text-center mb-4">FOREX Rates (EUR as base)</h4>
+  <div class="grid grid-cols-2 gap-4 md:grid md:grid-cols-3 md:gap-4">
+    <% exchange_data.each do |key, value| %>
+      <div class="sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+        <%= key %>
+      </div>
+      <div class="sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+        <%= value %>
+      </div>
+    <% end %>
+  </div>
 </div>
