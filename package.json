@@ -6,8 +6,11 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "autoprefixer": "^9",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

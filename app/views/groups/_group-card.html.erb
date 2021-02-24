@@ -1,7 +1,11 @@
-<%= image_tag g.icon ? g.icon : 'expense.png' %>
-<a href="/groups/<%= g.id %>">
-<%= g.name %>
-</a>
-<%= g.created_at.strftime('%m/%d/%Y') %>
-<p><%= g.description %></p>
+<div class="card bg-white rounded-lg shadow-xl flex my-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+<%= image_tag g.icon ? g.icon : 'expense.png', class: "w-14 h-14 p-2 md:w-20 md:h-20" %>
+<div class="flex flex-col">
+<%= link_to g.name, group_path(g.id), class: "no-underline hover:underline text-blue" %>
+<small class="sm:text-opacity-text-50 md:text-opacity-50">
+  <%= g.created_at.strftime('%m/%d/%Y') %>
+</small>
+<small class="sm:text-opacity-text-50 md:text-opacity-50"><%= g.description %></small>
 <%= custom_group?(g) %>
+</div>
+</div>
