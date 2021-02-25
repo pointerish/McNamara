@@ -1,14 +1,16 @@
   <%= form_with model: expense do |f| %>
-    <%= f.label :name %><br /><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-    <%= f.label :amount %>
-    <%= f.number_field :amount, autofocus: true, autocomplete: "amount"%>
-    <%= f.label "Category" %>
-    <select name="expense[group_id]">
+    <div class="flex flex-col justify-center items-center">
+    <%= f.label :name, class: "text-sm md:text-xl mb-2 mt-4" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'rounded' %>
+    <%= f.label :amount, class: "text-sm md:text-xl mb-2 mt-4" %>
+    <%= f.number_field :amount, step: 0.01, autofocus: true, autocomplete: "amount", class: 'rounded' %>
+    <%= f.label "Category", class: "text-sm md:text-xl mb-2 mt-4" %>
+    <select name="expense[group_id]" class="rounded">
       <option disabled selected value>Select Category</option>
       <% groups.each do |g| %>
         <option value="<%= g.id %>"><%= g.name %></option>
       <% end %>
     </select>
-    <%= f.submit request.path.include?("new") ? "Create" : "Update" %>
+    <%= f.submit request.path.include?("new") ? "Create" : "Update", class: "bg-green rounded mt-4 p-2 md:p-2 text-white hover:text-black" %>
+    </div>
   <% end %>
