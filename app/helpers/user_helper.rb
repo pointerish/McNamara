@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+
 require 'httparty'
 
 module UserHelper
@@ -12,3 +14,5 @@ module UserHelper
     end
   end
 end
+
+# rubocop:enable Style/GuardClause

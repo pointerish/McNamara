@@ -12,11 +12,11 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.build(expense_args)
     @expense.user_id = current_user.id
-    if params[:expense].include?(:group_id)
-      g_name = Group.find(params[:expense][:group_id]).name
-    else
-      g_name = ''
-    end
+    g_name = if params[:expense].include?(:group_id)
+               Group.find(params[:expense][:group_id]).name
+             else
+               ''
+             end
     @expense.group_name = g_name
     if @expense.save!
       redirect_to expenses_path
@@ -46,11 +46,11 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find params[:id]
-    if params[:expense].include?(:group_id)
-      g_name = Group.find(params[:expense][:group_id]).name
-    else
-      g_name = ''
-    end
+    g_name = if params[:expense].include?(:group_id)
+               Group.find(params[:expense][:group_id]).name
+             else
+               ''
+             end
     @expense.group_name = g_name
     if @expense.update(expense_args)
       redirect_to expenses_path

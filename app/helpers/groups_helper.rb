@@ -1,3 +1,5 @@
+# rubocop:disable Style/GuardClause
+
 module GroupsHelper
   def custom_group?(group)
     unless current_user.default_groups.include?(group.name)
@@ -5,3 +7,5 @@ module GroupsHelper
     end
   end
 end
+
+# rubocop:enable Style/GuardClause
