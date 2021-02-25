@@ -10,9 +10,10 @@ RSpec.describe 'Group', type: :feature do
     sleep(2)
     visit '/groups/new'
     fill_in 'Name', with: 'Chess'
-    fill_in 'Description', with: 'Chess Realated Expenses'
+    fill_in 'Description', with: 'Chess Related Expenses'
     click_on 'Create'
     sleep(2)
+    visit '/groups'
     expect(page).to have_content('Chess')
   end
 end
