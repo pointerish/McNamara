@@ -1,11 +1,17 @@
 ![](https://img.shields.io/badge/RoR-red)
 ![](https://img.shields.io/badge/SASS-blue)
+![](https://img.shields.io/badge/Tailwind-CSS-yellow)
+![](https://img.shields.io/badge/Responsive-Design-green)
 
-# McNamara
+# <img src="app/assets/images/logo.png"> McNamara
 
-> McNamara is an expense tracker web application built with Rails, PostgreSQL and Docker
+> McNamara is an expense tracker web application built with Rails, PostgreSQL and Docker that aides its user to track expenses and expense categories.
 
-<p style="center"><img src="app/assets/images/updated-logo.png"></p>
+<br>
+<p align="center">
+  <img src="docs/mobile.png" width="400">
+</p>
+<br>
 
 ## Built With
 
@@ -15,34 +21,22 @@
 
 ## Live Demo
 
-http://192.53.163.209/users/sign_in
+https://cutt.ly/RlRU9ka
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow the next steps:
 
-
-### Setup
-
-Instal gems with:
-
-```
-bundle install
-```
-
-Setup database with:
-
-```
-rails db:create
-rails db:migrate
-```
+- Get the repository by either cloning or Zip download
+- Install gems with `bundle install`
+- Setup database with `bin/rails db:migrate`. Keep in mind that you need to setup Postgres by installing it or by running it inside a Docker instance.
 
 ### Usage
 
 Start server with:
 
 ```
-rails server
+bin/rails server
 ```
 
 Open `http://localhost:3000/` in your browser.
@@ -50,7 +44,7 @@ Open `http://localhost:3000/` in your browser.
 ### Run tests
 
 ```
-rspec --format documentation
+rspec
 ```
 
 ### Deployment
