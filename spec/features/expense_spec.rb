@@ -9,8 +9,8 @@ RSpec.describe 'Expense', type: :feature do
     click_on 'Log in'
     sleep(2)
     visit '/expenses/new'
-    fill_in 'Name', with: 'Chess'
-    fill_in 'Amount', with: '200'
+    fill_in 'expense_name', with: 'Chess'
+    fill_in 'expense_amount', with: '200'
     click_on 'Create'
     visit '/expenses'
     sleep(2)

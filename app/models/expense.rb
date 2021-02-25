@@ -10,7 +10,7 @@ class Expense < ApplicationRecord
     if group_id
       Group.find(group_id).icon
     else
-      ''
+      'expense.png'
     end
   end
 end

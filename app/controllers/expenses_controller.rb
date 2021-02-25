@@ -36,7 +36,7 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    @expense = current_user.expenses.where('id = ?', params[:id])
+    @expense = Expense.find params[:id]
   end
 
   def edit
