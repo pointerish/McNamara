@@ -46,7 +46,12 @@ class ExpensesController < ApplicationController
 
   def update
     @expense = Expense.find params[:id]
-    @expense.group_name = Group.find(params[:expense][:group_id]).name
+    if params[:expense].include?(:group_id)
+      g_name = Group.find(params[:expense][:group_id]).name
+    else
+      g_name = ''
+    end
+    @expense.group_name = g_name
     if @expense.update(expense_args)
       redirect_to expenses_path
     else
@@ -55,7 +60,7 @@ class ExpensesController < ApplicationController
   end
 
   def uncategorized_expenses
-    @uncategorized_expenses = current_user.expenses.where('group_id = 1').order(:created_at)
+    @uncategorized_expenses = current_user.expenses.where(group_id: nil).order(:created_at)
     @u_expenses_total = @uncategorized_expenses.map(&:amount).inject(:+)
   end
 

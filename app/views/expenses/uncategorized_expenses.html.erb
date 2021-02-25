@@ -1,8 +1,14 @@
-<% if @uncategorized_expenses.nil? %>
-    <h2>You have no uncategorized expenses!</h2>
-<% else %>
-    <h2>Uncategorized Expenses</h2>
+<div class="md:container md:mx-auto mt-12">
+    <% if @uncategorized_expenses.nil? %>
+    <h2 class="font-black my-6 text-xl">You have no uncategorized expenses!</h2>
+    <%= image_tag 'error.png' %>
+    <% else %>
+    <div class="flex justify-between">
+        <h2 class="font-black my-6 text-xl">Uncategorized Expenses</h2>
+        <h3 class="font-black my-6 text-xl">Total: $<%= @u_expenses_total.nil? ? '0' : @u_expenses_total %></h3>
+    </div>
     <% @uncategorized_expenses.each do |expense| %>
     <%= render 'expenses/expense-card', expense: expense %>
     <% end %>
-<% end %>
+    <% end %>
+</div>
