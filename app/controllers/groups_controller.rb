@@ -40,8 +40,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group_expenses = current_user.expenses.where('group_id = ?', params[:id])
-    @group_name = Group.find(params[:id])
+    @group_expenses = current_user.expenses.where(group_id: params[:id])
+    @group = Group.find(params[:id])
   end
 
   private
