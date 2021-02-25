@@ -6,6 +6,9 @@ RSpec.describe Expense, type: :model do
   it 'is not valid without attributes' do
     expect(Expense.new).to_not be_valid
   end
+  it 'is valid with attributes' do
+    expect(user).to be_valid
+  end
   it 'is not valid without user_id' do
     expect(Expense.new(name: 'YouTube', amount: 2, group_id: 1)).to_not be_valid
   end
