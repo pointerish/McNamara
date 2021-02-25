@@ -1,4 +1,9 @@
-<h2>All Expenses</h2>
+<div class="md:container md:mx-auto mt-12">
+<div class="flex justify-between">
+<h2 class="font-black my-6 text-xl">All Expenses</h2>
+<h2 class="font-black my-6 text-xl">Total: $<%= @expenses_total %></h2>
+</div>
 <% @expenses.each do |expense| %>
   <%= render 'expenses/expense-card', expense: expense %>
 <% end %>
+</div>
