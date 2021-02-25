@@ -6,6 +6,9 @@
             <%= g.created_at.strftime('%m/%d/%Y') %>
         </small>
         <small class="sm:text-opacity-text-50 md:text-opacity-50"><%= g.description %></small>
-        <%= custom_group?(g) %>
+        <div class="flex">
+          <div class="mr-1"><%= custom_group_edit?(g) %></div>
+          <div class="ml-1"><%= custom_group_delete?(g) %></div>
+        </div>
     </div>
 </div>

@@ -60,7 +60,7 @@ class ExpensesController < ApplicationController
   end
 
   def uncategorized_expenses
-    @uncategorized_expenses = current_user.expenses.where(group_id: nil).order(:created_at)
+    @uncategorized_expenses = current_user.expenses.where(group_id: nil).order(created_at: :desc)
     @u_expenses_total = @uncategorized_expenses.map(&:amount).inject(:+)
   end
 

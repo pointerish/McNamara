@@ -12,6 +12,7 @@ RSpec.describe 'Expense', type: :feature do
     fill_in 'Name', with: 'Chess'
     fill_in 'Amount', with: '200'
     click_on 'Create'
+    visit '/expenses'
     sleep(2)
     expect(page).to have_content('Chess')
   end
