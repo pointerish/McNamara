@@ -11,7 +11,7 @@ RSpec.describe 'Expense', type: :feature do
     visit '/expenses/new'
     fill_in 'expense_name', with: 'Chess'
     fill_in 'expense_amount', with: '200'
-    select("Entertainment", from: "expense[group_id]").select_option
+    select('Entertainment', from: 'expense[group_id]').select_option
     click_on 'Create'
     visit '/expenses'
     sleep(2)
@@ -28,7 +28,7 @@ RSpec.describe 'Expense', type: :feature do
     visit '/expenses/new'
     fill_in 'Name', with: 'Chess'
     fill_in 'Amount', with: '200'
-    select("Entertainment", from: "expense[group_id]").select_option
+    select('Entertainment', from: 'expense[group_id]').select_option
     click_on 'Create'
     sleep(2)
     click_on 'Delete'
