@@ -9,13 +9,13 @@
   <div class="p-2 rounded shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
     <%= draw_chart %>
   </div>
-  <h4 class="font-black text-xl text-center mb-4">FOREX Rates (EUR as base)</h4>
-  <div class="grid grid-cols-2 gap-4 md:grid md:grid-cols-3 md:gap-4">
+  <h4 class="font-black text-xl text-center my-4">FOREX Rates (EUR as base)</h4>
+  <div class="grid grid-cols-2 gap-4">
     <% exchange_data.each do |key, value| %>
-      <div class="sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+      <div class="font-black sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
         <%= key %>
       </div>
-      <div class="sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+      <div class="font-black sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
         <%= value %>
       </div>
     <% end %>
