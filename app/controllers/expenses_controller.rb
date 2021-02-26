@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   def index
-    @expenses = current_user.expenses.includes(:group).order(created_at: :desc)
+    @expenses = current_user.expenses.order(created_at: :desc)
     @expenses_total = @expenses.map(&:amount).inject(:+)
   end
 

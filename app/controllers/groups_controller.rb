@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = current_user.groups.build(group_args)
+    @group.icon = 'expense.png'
     if @group.save!
       redirect_to groups_path
     else
@@ -18,7 +19,6 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-
     if @group.destroy
       redirect_to root_path
     else

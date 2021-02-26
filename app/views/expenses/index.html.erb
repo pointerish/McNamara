@@ -4,6 +4,6 @@
 <h3 class="font-black my-6 text-xl">Total: $<%= @expenses_total.nil? ? '0' : @expenses_total %></h3>
 </div>
 <% @expenses.each do |expense| %>
-  <%= render 'expenses/expense-card', expense: expense %>
+  <%= render 'expense-card', expense: expense %>
 <% end %>
 </div>

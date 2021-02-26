@@ -8,7 +8,7 @@
         <h3 class="font-black my-6 text-xl">Total: $<%= @u_expenses_total.nil? ? '0' : @u_expenses_total %></h3>
     </div>
     <% @uncategorized_expenses.each do |expense| %>
-    <%= render 'expenses/expense-card', expense: expense %>
+      <%= render 'expense-card', expense: expense %>
     <% end %>
     <% end %>
 </div>
