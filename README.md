@@ -21,7 +21,7 @@
 
 ## Live Demo
 
-https://cutt.ly/RlRU9ka
+https://cutt.ly/nlPislk
 
 ## Getting Started
 
