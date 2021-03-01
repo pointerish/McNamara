@@ -2,9 +2,6 @@
     <%= image_tag g.icon ? g.icon : 'expense.png', class: "w-14 h-14 p-2 md:w-20 md:h-20" %>
     <div class="flex flex-col">
         <%= link_to g.name, group_path(g.id), class: "no-underline hover:underline text-blue" %>
-        <small class="sm:text-opacity-text-50 md:text-opacity-50">
-            <%= g.created_at.strftime('%m/%d/%Y') %>
-        </small>
         <small class="sm:text-opacity-text-50 md:text-opacity-50"><%= g.description %></small>
         <div class="flex">
           <div class="mr-1"><%= custom_group_edit?(g) %></div>
