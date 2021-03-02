@@ -8,9 +8,9 @@ class Expense < ApplicationRecord
 
   def icon
     if group_id
-      Group.find(group_id).icon
+      Group.find(group_id)
     else
-      'expense.png'
+      nil
     end
   end
 end

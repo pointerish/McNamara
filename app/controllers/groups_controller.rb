@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = current_user.groups.order(created_at: :desc)
+    @groups = current_user.groups.with_attached_image.order(created_at: :desc)
   end
 
   def new
@@ -47,6 +47,6 @@ class GroupsController < ApplicationController
   private
 
   def group_args
-    params.require(:group).permit(:name, :description)
+    params.require(:group).permit(:name, :description, :image)
   end
 end
