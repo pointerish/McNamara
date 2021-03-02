@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to expenses_path
     else
-      redirect_to expenses_path
+      redirect_to new_expense_path
       flash[:alert] = "Check your inputs. Something is wrong!"
     end
   end

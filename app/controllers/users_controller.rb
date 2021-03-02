@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_expenses = current_user.expenses.order(:created_at).preload(:group)
+    @user_expenses = current_user.expenses.order(created_at: :desc).preload(:group)
   end
 
   def new
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_args
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :time_zone)
   end
 end

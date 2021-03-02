@@ -6,7 +6,7 @@ class Expense < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true, length: { in: 2..20 }
 
-  def icon
+  def group
     if group_id
       Group.find(group_id)
     else
