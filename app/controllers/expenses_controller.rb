@@ -18,10 +18,11 @@ class ExpensesController < ApplicationController
                ''
              end
     @expense.group_name = g_name
-    if @expense.save!
+    if @expense.save
       redirect_to expenses_path
     else
-      redirect_to expenses_path, alert: @expense.errors.full_messages.join('. ').to_s
+      redirect_to expenses_path
+      flash[:alert] = "Check your inputs. Something is wrong!"
     end
   end
 

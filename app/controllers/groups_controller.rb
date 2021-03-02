@@ -10,10 +10,11 @@ class GroupsController < ApplicationController
   def create
     @group = current_user.groups.build(group_args)
     @group.icon = 'expense.png'
-    if @group.save!
+    if @group.save
       redirect_to groups_path
     else
       redirect_to new_group_path
+      flash[:alert] = "Check your inputs. Something is wrong!"
     end
   end
 
@@ -22,7 +23,7 @@ class GroupsController < ApplicationController
     if @group.destroy
       redirect_to root_path
     else
-      redirect_to root_path, alert: @group.errors.full_messages.join('. ').to_s
+      redirect_to root_path
     end
   end
 
@@ -32,7 +33,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find params[:id]
-    if @group.update!(group_args)
+    if @group.update(group_args)
       redirect_to groups_path
     else
       redirect_to groups_path, alert: @group.errors.full_messages.join('. ').to_s
