@@ -12,6 +12,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = current_user.expenses.build(expense_args)
     @expense.user_id = current_user.id
+    @expense.time_zone = local_time
     g_name = if params[:expense].include?(:group_id)
                Group.find(params[:expense][:group_id]).name
              else
@@ -69,5 +70,9 @@ class ExpensesController < ApplicationController
 
   def expense_args
     params.require(:expense).permit(:name, :amount, :group_id)
+  end
+
+  def local_time
+    Time.now.getlocal(current_user.created_at_local.utc_offset)
   end
 end

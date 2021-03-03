@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    attributes = %i[username email password]
+    attributes = %i[username email password time_zone]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
   end
 end
