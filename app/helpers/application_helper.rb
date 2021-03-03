@@ -1,5 +1,6 @@
 module ApplicationHelper
   def icon_name(user, group)
+    return 'expense.png' if group.nil?
     if group.image.attached?
       group.image
     else
