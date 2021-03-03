@@ -58,6 +58,13 @@
     </nav>
     <% end %>
     <div class="bg-grey-100 mt-10 p-4">
+        <div class="flex flex-col justify-center items-center">
+            <% flash.each do |type, msg| %>
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-10" role="alert">
+                <p><%= msg %></p>
+            </div>
+            <% end %>
+        </div>
         <%= yield %>
     </div>
 </body>
