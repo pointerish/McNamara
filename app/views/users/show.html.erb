@@ -1,6 +1,5 @@
 <div class="md:container md:mx-auto mt-12">
   <h2 class="font-black my-6 text-xl">Hi, <%= current_user.username %>!</h2>
-  <h3 class="font-black my-6 text-xl">Time Zone: <%= current_user.created_at_local %>!</h3>
   <h4>See your expense categories:</h4>
   <div class="md:grid md:grid-cols-3 md:gap-4">
     <% current_user.groups.order(created_at: :desc).each do |category| %>
