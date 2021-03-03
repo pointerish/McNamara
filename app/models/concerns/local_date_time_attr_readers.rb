@@ -8,7 +8,7 @@ module LocalDateTimeAttrReaders
   class_methods do
     def time_zone_attr_reader(attr)
       define_method :time_zone_reader do
-        self.send(attr)
+        send(attr)
       end
     end
 
@@ -26,7 +26,7 @@ module LocalDateTimeAttrReaders
 
   private
 
-    def attribute_local(attr)
-      send(attr).in_time_zone(time_zone_reader)
-    end
+  def attribute_local(attr)
+    send(attr).in_time_zone(time_zone_reader)
+  end
 end

@@ -7,10 +7,6 @@ class Expense < ApplicationRecord
   validates :name, presence: true, length: { in: 2..20 }
 
   def group
-    if group_id
-      Group.find(group_id)
-    else
-      nil
-    end
+    Group.find(group_id) if group_id
   end
 end

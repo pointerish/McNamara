@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
       redirect_to groups_path
     else
       redirect_to new_group_path
-      flash[:alert] = "Check your inputs. Something is wrong!"
+      flash[:alert] = 'Check your inputs. Something is wrong!'
     end
   end
 
