@@ -20,11 +20,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    if @group.destroy
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
+    redirect_to root_path if @group.destroy
   end
 
   def edit
