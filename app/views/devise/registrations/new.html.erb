@@ -18,7 +18,7 @@
       <%= f.label :password_confirmation, class: "text-sm md:text-xl mb-2 mt-4" %>
       <%= f.password_field :password_confirmation, class: 'rounded' %>
       <%= f.label :time_zone, class: "text-sm md:text-xl mb-2 mt-4" %>
-      <%= f.time_zone_select :time_zone %>
+      <%= f.time_zone_select :time_zone, class: "ml-20 pl-10" %>
       <%= f.submit "Sign up", class: "bg-green rounded mt-4 p-2 md:p-2 text-white hover:text-black" %>
       <%= render "devise/shared/links" %>
     </div>

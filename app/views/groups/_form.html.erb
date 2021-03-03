@@ -6,7 +6,7 @@
     <%= f.text_area :description, autofocus: true, autocomplete: "name", class:"rounded" %>
     <div class="flex flex-col justify-center items-center">
         <%= f.label :image, class: "text-sm md:text-xl mb-2 mt-4" %>
-        <%= f.file_field :image, class:"rounded" %>
+        <%= f.file_field :image, class:"ml-20 pl-10" %>
     </div>
     <%= f.submit request.path.include?("new") ? "Create" : "Update", class: "bg-green rounded mt-4 p-2 md:p-2 text-white hover:text-black" %>
 </div>
