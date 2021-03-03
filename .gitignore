@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Don't ignore postcss config file
+!postcss.config.js
+
 # Ignore bundler config.
 /.bundle
 
