@@ -1,17 +1,22 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  after_create :setup_groups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  after_create :setup_groups
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 
   validates :username, uniqueness: true, presence: true
+  validates :time_zone, presence: true, time_zone: true
   validates :email, uniqueness: true, presence: true, format: { with: VALID_EMAIL_REGEX }
 
   has_many :groups, dependent: :destroy
   has_many :expenses, dependent: :destroy
+
+  include LocalDateTimeAttrReaders
+  time_zone_attr_reader :time_zone
+  local_date_attr_reader :created_at, :updated_at
 
   def default_groups
     %w[Uncategorized Housing Transportation
