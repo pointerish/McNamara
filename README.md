@@ -5,7 +5,7 @@
 
 # <img src="app/assets/images/logo.png"> McNamara
 
-> McNamara is an expense tracker web application built with Rails, PostgreSQL and Docker that aides its user to track expenses and expense categories.
+> McNamara is an expense tracker web application built with Rails, PostgreSQL and Docker that tracks expenses and expense categories.
 
 <br>
 <p align="center">
@@ -13,15 +13,25 @@
 </p>
 <br>
 
+## Features
+
+- Creation of custom categories
+- Global time zone selection
+- Custom icon upload for categories powered by `Active Storage`
+- FOREX currency stats for `USD`, `CAD`, `CHF`, `DKK`, `JPY` and `GBP`
+- Downloadable expenses pie chart
+
 ## Built With
 
 - Ruby v2.7.0
-- Ruby on Rails v6.1.3
+- Ruby on Rails v6.1.2
 - PostgreSQL:latest
+- Tailwind CSS
+- [Rates API](https://ratesapi.io/)
 
 ## Live Demo
 
-https://cutt.ly/nlPislk
+https://bit.ly/3bWNsof
 
 ## Getting Started
 
@@ -30,6 +40,7 @@ To get a local copy up and running follow the next steps:
 - Get the repository by either cloning or Zip download
 - Install gems with `bundle install`
 - Setup database with `bin/rails db:migrate`. Keep in mind that you need to setup Postgres by installing it or by running it inside a Docker instance.
+- Make sure all node packages are available by running `npm install`
 
 ### Usage
 
@@ -82,6 +93,7 @@ Give a ⭐️ if you like this project!
 - [The Odin Project](https://www.theodinproject.com/)
 - [Microverse](https://microverse.org)
 - [My brain](https://josias-alvarado.me)
+- [Rates API](https://ratesapi.io/)
 
 ## License
 
