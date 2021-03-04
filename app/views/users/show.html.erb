@@ -1,0 +1,26 @@
+<div class="md:container md:mx-auto mt-12">
+  <h2 class="font-black mt-6 text-xl">Hi, <%= current_user.username %>!</h2>
+  <div class="mb-6">
+    <%= link_to "Edit my details", edit_user_url(current_user.id), class: 'text-blue underline' %>
+  </div>
+  <h4>See your expense categories:</h4>
+  <div class="md:grid md:grid-cols-3 md:gap-4">
+    <% current_user.groups.order(created_at: :desc).each do |category| %>
+      <%= render 'groups/group-card', g: category %>
+    <% end %>
+  </div>
+  <div class="p-2 rounded shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+    <%= draw_chart %>
+  </div>
+  <h4 class="font-black text-xl text-center my-4">FOREX Rates (EUR as base)</h4>
+  <div class="grid grid-cols-2 gap-4">
+    <% exchange_data.each do |key, value| %>
+      <div class="font-black sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+        <%= key %>
+      </div>
+      <div class="font-black sm:text-sm md:text-lg text-center p-2 rounded shadow-xl">
+        <%= value %>
+      </div>
+    <% end %>
+  </div>
+</div>

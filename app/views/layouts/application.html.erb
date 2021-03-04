@@ -1,16 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>McNamara</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= favicon_link_tag asset_path('logo.png') %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <% if user_signed_in? %>
+    <nav class="flex items-center justify-between flex-wrap bg-blue px-2 fixed w-full z-10 top-0">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <a class="text-white no-underline hover:text-white hover:no-underline p-0" href="/">
+                <%= image_tag 'logo.png' %>McNamara
+            </a>
+        </div>
+
+        <div class="block lg:hidden">
+            <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-white-500 border-white-600 hover:text-white hover:border-white">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+            </button>
+        </div>
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <%= link_to 'Home', user_url(current_user.id), class: 'ml-4 font-black' %>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <a class="inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" href="/expenses">Expenses</a>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <a class="inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" href="/expenses/uncategorized">External Expenses</a>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <a class="inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" href="/groups">Categories</a>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <a class="inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" href="/expenses/new">Add Expense</a>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <a class="inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" href="/groups/new">Add Category</a>
+                </li>
+                <li class="mr-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-60">
+                    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "inline-block text-white-600 no-underline hover:text-white-200 hover:text-underline py-2 px-4" %>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <% end %>
+    <div class="bg-grey-100 mt-10 p-4">
+        <div class="flex flex-col justify-center items-center">
+            <% flash.each do |type, msg| %>
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mt-10" role="alert">
+                <p><%= msg %></p>
+            </div>
+            <% end %>
+        </div>
+        <%= yield %>
+    </div>
+</body>
+<script>
+    //Javascript to toggle the menu
+    document.getElementById('nav-toggle').onclick = function() {
+        document.getElementById("nav-content").classList.toggle("hidden");
+    }
+</script>
+
 </html>

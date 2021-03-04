@@ -1,0 +1,9 @@
+<% if resource.errors.any? %>
+  <% resource.errors.full_messages.each do |message| %>
+    <div class="ui negative message">
+      <div class="header">
+        <%= message %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

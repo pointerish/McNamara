@@ -1,0 +1,8 @@
+<div class="md:container md:mx-auto mt-12">
+  <h2 class="font-black my-6 text-xl">Your Categories</h2>
+  <div class="md:grid md:grid-cols-4 md:mx-auto md:my-auto md:gap-4">
+    <% @groups.each do |group| %>
+    <%= render 'group-card', g: group %>
+    <% end %>
+  </div>
+</div>

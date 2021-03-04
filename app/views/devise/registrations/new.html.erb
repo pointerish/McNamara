@@ -1,0 +1,26 @@
+<div class="flex flex-col justify-center items-center">
+  <div class="flex flex-col text-center mb-2">
+    <h2 class="font-black my-6 text-2xl">Sign up</h2>
+    <%= image_tag "logo.png" %>
+  </div>
+  <%= form_with model: @user do |f| %>
+    <div class="flex flex-col justify-center items-center">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.label :username, class: "text-sm md:text-xl mb-2 mt-4" %>
+      <%= f.text_field :username, class: 'rounded' %>
+      <%= f.label :email, class: "text-sm md:text-xl mb-2 mt-4" %>
+      <%= f.email_field :email, class: 'rounded' %>
+      <%= f.label :password, class: "text-sm md:text-xl mb-2 mt-4" %>
+      <% if @minimum_password_length %>
+      <small>(<%= @minimum_password_length %> characters minimum)</small>
+      <% end %>
+      <%= f.password_field :password, class: 'rounded' %>
+      <%= f.label :password_confirmation, class: "text-sm md:text-xl mb-2 mt-4" %>
+      <%= f.password_field :password_confirmation, class: 'rounded' %>
+      <%= f.label :time_zone, class: "text-sm md:text-xl mb-2 mt-4" %>
+      <%= f.time_zone_select :time_zone %>
+      <%= f.submit "Sign up", class: "bg-green rounded mt-4 p-2 md:p-2 text-white hover:text-black" %>
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+</div>

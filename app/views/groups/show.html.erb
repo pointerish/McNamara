@@ -1,0 +1,9 @@
+<div class="md:container md:mx-auto mt-12">
+  <div class="flex justify-between">
+    <h2 class="font-black my-6 text-xl"><%= @group.name %></h2>
+    <h2 class="font-black my-6 text-xl">Total: $<%= @group_expenses.nil? ? '0' : @group_expenses.map(&:amount).inject(:+) %></h2>
+  </div>
+  <% @group_expenses.each do |expense| %>
+    <%= render 'expenses/expense-card', expense: expense %>
+  <% end %>
+</div>

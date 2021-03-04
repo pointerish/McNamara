@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "McNamara_production"
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    entrypoint: ["./app/lib/docker-entrypoint.sh"]
+    command: bin/rails s -e default -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/McNamara
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
